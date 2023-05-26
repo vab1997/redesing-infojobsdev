@@ -1,0 +1,100 @@
+// let dataDocApi = []
+// $$('.operations-list').forEach(article => {
+//     const title = article.querySelector('h2').innerText
+//     const descriptionOperation = article.querySelector('p').innerText
+//     // article.querySelector('tbody').querySelectorAll('tr').forEach(item => console.log(item))
+//     let dataTable = []
+    
+//     article.querySelector('tbody').querySelectorAll('tr').forEach(item => {
+//         // console.log(item)
+//         const method = item?.querySelector('.method')?.innerText
+//         const name = item?.querySelector('.col-01')?.querySelector('p')?.innerText
+//         const descriptionMethod = item?.querySelector('col-02')?.querySelector('p')?.innerText
+//         const linkDocMethod = item?.querySelector('a')?.getAttribute('href')
+
+//         dataTable.push({ method, name, descriptionMethod, linkDocMethod })
+//     })
+
+//     dataDocApi.push({ title, descriptionOperation, dataTable })
+//     console.log({ title, descriptionOperation, dataTable })
+// })
+// copy(dataDocApi)
+
+
+
+// PARA DOC SIN TABLA PARA PARAMETERS
+// $$('#template5').forEach(article => {
+//     const urlName = article.querySelector('#ophead').querySelector('h1').innerText
+//     const method = article.querySelector('#ophead').querySelector('.method').innerText
+//     const detailMethod = article.querySelector('.operations-list').querySelector('.text-detail').innerText
+    
+//     const resourceURL = article.querySelector('.operations-list').querySelector('strong').innerText
+//     const user_role = article.querySelector('ul').querySelectorAll('li')[0].querySelector('span').innerText
+//     const scope = article.querySelector('ul').querySelectorAll('li')[1].querySelector('span').innerText
+//     const security = { user_role, scope }
+//     const parameters = article.querySelectorAll('ul')[1].querySelector('li').innerText
+
+//     const request = { resourceURL, security, parameters }
+        
+//     let responseTable = []
+    
+//     article.querySelector('tbody').querySelectorAll('tr').forEach(item => {
+//         const name = item.querySelectorAll('.col-01')[0]?.querySelector('p')?.innerText
+//         const description = item.querySelectorAll('.col-02')[0]?.querySelector('p')?.innerText
+
+//         name && responseTable.push({ name, description })
+//     })
+
+//     const descriptionExample = article.querySelector('.text-detail').innerText
+//     const requestURL = article.querySelector('.value').innerText
+//     const codeExample = article.querySelector('.code').querySelector('pre').innerText
+
+//     // dataDocApi.push({ title, descriptionOperation, dataTable })
+//     console.log({ urlName, method, detailMethod, request, responseTable, descriptionExample, requestURL, codeExample })
+// })
+
+
+// PARA DOC CON TABLA PARA PARAMETERS
+// $$('#template5').forEach(article => {
+//     const urlName = article.querySelector('#ophead').querySelector('h1').innerText
+//     const method = article.querySelector('#ophead').querySelector('.method').innerText
+//     const detailMethod = article.querySelector('.operations-list').querySelector('.text-detail').innerText
+    
+//     const resourceURL = article.querySelector('.operations-list').querySelector('strong').innerText
+//     const user_role = article.querySelector('ul').querySelectorAll('li')[0].querySelector('span').innerText
+//     const scope = article.querySelector('ul').querySelectorAll('li')[1].querySelector('span').innerText
+//     const security = { user_role, scope }
+
+//     const parameters = []
+//     const responseTable = []
+//     const errorCode = []
+
+//     article.querySelectorAll('.list-table').forEach((table, index) => {
+//         table.querySelector('tbody').querySelectorAll('tr').forEach((item) => {
+//             const name = item.querySelectorAll('.col-01')[0]?.querySelector('p')?.innerText
+//             const description = item.querySelectorAll('.col-02')[0]?.querySelector('p')?.innerText
+    
+//             if (index === 0) return parameters.push({ name, description })
+//             if(Number(name)) return errorCode.push({ code: name, description })
+//             responseTable.push({ name, description })
+//         })
+//     })
+
+//     const request = { resourceURL, security, parameters }
+
+//     const descriptionExample = article.querySelector('.text-detail').innerText
+//     const requestURL = article.querySelector('.value').innerText
+//     const codeExample = article.querySelector('.code').querySelector('pre').innerText
+
+//     // dataDocApi.push({ title, descriptionOperation, dataTable })
+//     console.log({ urlName, method, detailMethod, request, responseTable, errorCode, descriptionExample, requestURL, codeExample })
+// })
+
+
+$$('#template5').forEach(article => {
+    const responeseOkExample = article.querySelectorAll('.code')[0].querySelector('pre').innerText
+    const responeseErrorExample = article.querySelectorAll('.code')[1].querySelector('pre').innerText
+
+    console.log({ responeseOkExample, responeseErrorExample })
+    copy({ responeseOkExample, responeseErrorExample })
+})
