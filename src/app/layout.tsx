@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import './globals.css'
 import { Footer } from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <ScrollToTop />
         <Footer />
       </body>
     </html>
