@@ -820,7 +820,7 @@ export const dataInfoEndpoint = [
     responeseErrorExample: ''
   },
   {
-    urlName: 'GET/curriculum/{curriculumId}/education/{educationId}',
+    urlName: '/curriculum/{curriculumId}/education/{educationId}',
     method: 'GET',
     detailMethod:
       'Allows to read the education identified by the educationId provided of a CV that belongs to the authenticated user. Only non null fields will not be displayed in the response.',
@@ -2889,7 +2889,7 @@ export const dataInfoEndpoint = [
     responeseErrorExample: ''
   },
   {
-    urlName: 'GET/curriculum/{curriculumId}/skill',
+    urlName: '/curriculum/{curriculumId}/skill',
     method: 'GET',
     detailMethod:
       'Allows to read the skills of a Curriculum that belongs to the authenticated user. It returns two types of skill, expertise and language, each one with different attributes.',
@@ -4624,7 +4624,7 @@ export const dataInfoEndpoint = [
     ],
     descriptionExample:
       'The authenticated user uses this operation to make a job application for the indicated offer. It is imporant to notice that some offers include several questions that should be answered as a requirement to complete the application. These questions are called Killer Question for the multiple choice ones, and Open Questions for those the answer is a free input text. This operation has been developed to optimize the process of applying to an offer from a mobile device. It allows to edit an existing coverletter at the same time the application is submited. So if a user decides to save the coverletter they just used for the future they can do so by informing the field "doSave".',
-    requestURL: 'https://api.infojobs.net/api/4/offer/{offerId}/application',
+    requestURL: 'http://api.infojobs.net/api/4/offer/1ea3d2bedb4940bc83aad93726cb16/application',
     responeseOkExample:
       '{\n  "curriculumCode":"25910c23-37cd-40f6-97ca-9aa1e1959002",\n  "coverLetter":{\n    "name": "Carta 1",\n    "key": "4961a461-23b3-44ed-a424-56a458df5c14",\n    "main": false,\n    "text": "My old coverletter with some changes that I could like to save.",\n    "doSave": true\n  },\n  "offerOpenQuestions":[\n    {\n      "id": 2391697190,\n      "answer": "Si, vivo en Barcelona."\n    }\n  ],\n  "offerKillerQuestions":[\n    {\n      "id": 2391697192,\n      "answerId":2391697196\n    },\n    {\n      "id": 2391697192,\n      "answerId":2391697196\n    }\n  ]\n}\n',
     responeseErrorExample: ''
