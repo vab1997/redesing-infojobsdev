@@ -16,7 +16,7 @@ export default async function DocPage() {
             className='flex flex-col justify-center gap-6 pb-12 w-full'
           >
             <div className='flex flex-col  gap-2'>
-              <h1 className='text-[#EE81C3] text-lg font-bold'>{item.title}</h1>
+              <h1 className='text-[#5386AB] text-2xl font-bold'>{item.title}</h1>
               <p className='text-gray-50'>{item.descriptionOperation}</p>
             </div>
             <Table>
@@ -65,6 +65,8 @@ export default async function DocPage() {
                           '/',
                           '-'
                         )}`}
+                        aria-label='Go to operation docs'
+                        title='Go to operation docs'
                       >
                         <ArrowRight width={32} height={32} />
                       </Link>

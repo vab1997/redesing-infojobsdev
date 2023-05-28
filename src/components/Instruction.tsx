@@ -36,7 +36,7 @@ export function Instruction() {
         {Object.entries(INSTRUCTION).map(([key, value]) => (
           <article key={key} className="flex flex-col items-center w-1/4 gap-2">
             <header className="flex flex-col pb-8 h-36">
-              <h1 className="text-[#EE81C3] font-medium mb-2">{value.title}</h1>
+              <h1 className="text-[#5386AB] font-medium mb-2">{value.title}</h1>
               <p className="text-gray-50 leading-6">
                 {value.description}
               </p>

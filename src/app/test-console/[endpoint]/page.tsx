@@ -13,11 +13,11 @@ export default async function TestConsole({ params }: { params: { endpoint: stri
           <h1 className='text-4xl font-bold'>
             Test Console for endpoint: {endpoint}
           </h1>
-          <div className='flex items-center flex-col gap-4 border border-[#EE81C3] py-4 px-8 rounded w-3/4'>
-            <h3 className='font-medium text-[#EE81C3] text-lg text-start w-full'>Operation</h3>
+          <div className='flex items-center flex-col gap-4 border border-[#5386AB] py-4 px-8 rounded w-3/4'>
+            <h3 className='font-medium text-[#5386AB] text-lg text-start w-full'>Operation</h3>
 
             <div className='flex items-center justify-center w-full'>
-              <FormOperation endpoint={urlApi} method={findInfoEndpoint.method} />
+              <FormOperation endpoint={urlApi} method={findInfoEndpoint.method} route={params.endpoint} />
             </div>
           </div>
         </section>

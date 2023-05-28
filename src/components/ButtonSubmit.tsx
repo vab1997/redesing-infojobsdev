@@ -9,7 +9,7 @@ export function ButtonSubmit() {
 
   return (
     <button
-      className='flex items-center justify-center rounded border border-[#EE81C3] bg-transparent text-[#EE81C3] hover:bg-[#EE81C3] hover:text-gray-50 py-2 px-4 w-28'
+      className='flex items-center justify-center rounded border border-[#5386AB] bg-transparent text-[#5386AB] hover:bg-[#5386AB] hover:text-gray-50 py-2 px-4 w-28'
       type='submit'
     >
       {pending
