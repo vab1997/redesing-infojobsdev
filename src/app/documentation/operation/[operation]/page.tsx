@@ -1,8 +1,13 @@
-import { Table } from '@/components/Table'
-import { Thead } from '@/components/Thead'
-import { Tbody } from '@/components/Tbody'
-import { COLOR_METHOD } from '@/utils/constant';
+import Link from 'next/link'
+import { TableDetailEndpoint } from '@/components/TableDetailEndpoint'
 import { dataInfoEndpoint } from '../../../../../data/dataInfoEndpoint'
+
+const COLOR_METHOD = {
+  GET: 'bg-green-500/30 text-green-500',
+  PUT: 'bg-yellow-500/30 text-yellow-500',
+  POST: 'bg-blue-500/30 text-blue-500',
+  DELETE: 'bg-red-500/30 text-red-500',
+}
 
 export default function Operation({ params }: { params: { operation: string } }) {
   const splitOperation = params.operation.split('%3D')
@@ -21,6 +26,12 @@ export default function Operation({ params }: { params: { operation: string } })
             <h1 className='text-4xl font-medium'>{dataEndpoint.urlName}</h1>
           </div>
           <h3 className='text-xl'>{dataEndpoint.detailMethod}</h3>
+          <Link
+            href={`/test-console/${dataEndpoint.urlName.replaceAll('/', '-')}`}
+            className='flex items-center justify-center rounded border border-[#EE81C3] bg-transparent text-[#EE81C3] hover:bg-[#EE81C3] hover:text-gray-50 py-2 px-4'
+          >
+            Try it
+          </Link>
         </header>
 
         <div className='flex flex-col gap-2 justify-start px-6 py-6 border-b border-[#EE81C3] pb-8'>
@@ -28,7 +39,7 @@ export default function Operation({ params }: { params: { operation: string } })
           <section className='flex w-full'>
             <div className='flex flex-col leading-4 w-3/5'>
               <h2 className='text-gray-50 text-2xl font-medium mb-2 flex items-center w-full'>Resource URL:</h2>
-              <span className='font-medium text-xl text-gray-400'>{dataEndpoint.request.resourceURL}</span>
+              <span className='font-medium text-xl text-gray-400 truncate pr-4'>{dataEndpoint.request.resourceURL}</span>
             </div>
             <div className='flex flex-col leading-4 w-2/5'>
               <h2 className='text-2xl font-medium mb-2'>Security</h2>
@@ -41,62 +52,10 @@ export default function Operation({ params }: { params: { operation: string } })
             {Array.isArray(dataEndpoint.request.parameters)
               ? (
                 <>
-                  <Table>
-                    <Thead>
-                      <tr>
-                        <th scope='col' className='px-6 py-3'>
-                          Name
-                        </th>
-                        <th scope='col' className='px-6 py-3'>
-                          Description
-                        </th>
-                      </tr>
-                    </Thead>
-                    <Tbody>
-                      {dataEndpoint.request.parameters.map((item, index) => (
-                        <tr key={index} className='bg-[#282A36] [&>*]:text-gray-50'>
-                          <th
-                            scope='row'
-                            className='px-6 py-4 w-1/2 font-medium whitespace-nowrap'
-                          >
-                            {item.name}
-                          </th>
-                          <td className='px-6 py-4 w-1/2'>
-                            {item.description}
-                          </td>
-                        </tr>
-                      ))}
-                    </Tbody>
-                  </Table>
+                  <TableDetailEndpoint dataBody={dataEndpoint.request.parameters} />
                   {dataEndpoint.request.availableValues &&
                     (
-                      <Table title='Available identifiers:'>
-                        <Thead>
-                          <tr>
-                            <th scope='col' className='px-6 py-3'>
-                              Name
-                            </th>
-                            <th scope='col' className='px-6 py-3'>
-                              Description
-                            </th>
-                          </tr>
-                        </Thead>
-                        <Tbody>
-                          {dataEndpoint.request.availableValues.map((item, index) => (
-                            <tr key={index} className='bg-[#282A36] [&>*]:text-gray-50'>
-                              <th
-                                scope='row'
-                                className='px-6 py-4 w-1/2 font-medium whitespace-nowrap'
-                              >
-                                {item.name}
-                              </th>
-                              <td className='px-6 py-4 w-1/2'>
-                                {item.description}
-                              </td>
-                            </tr>
-                          ))}
-                        </Tbody>
-                      </Table>
+                      <TableDetailEndpoint title='Available identifiers:' dataBody={dataEndpoint.request.availableValues} />
                     )
                   }
                 </>
@@ -115,33 +74,7 @@ export default function Operation({ params }: { params: { operation: string } })
                   {dataEndpoint.responeseOkExample}
                 </pre>
               </div>
-              <Table>
-                <Thead>
-                  <tr>
-                    <th scope='col' className='px-6 py-3'>
-                      Name
-                    </th>
-                    <th scope='col' className='px-6 py-3'>
-                      Description
-                    </th>
-                  </tr>
-                </Thead>
-                <Tbody>
-                  {dataEndpoint.request.bodyRequest.map((item, index) => (
-                      <tr key={index} className='bg-[#282A36] [&>*]:text-gray-50'>
-                        <th
-                          scope='row'
-                          className='px-6 py-4 w-1/2 font-medium whitespace-nowrap'
-                        >
-                          {item.name}
-                        </th>
-                        <td className='px-6 py-4 w-1/2'>
-                          {item.description}
-                        </td>
-                      </tr>
-                  ))}
-                </Tbody>
-              </Table>
+              <TableDetailEndpoint dataBody={dataEndpoint.request.bodyRequest} />
             </div>
           )}
         </div>
@@ -150,33 +83,7 @@ export default function Operation({ params }: { params: { operation: string } })
           <h1 className='text-6xl font-medium text-[#EE81C3] mb-4'>Response</h1>
           <h2 className='text-2xl font-medium'>Response fields</h2>
           {Array.isArray(dataEndpoint.responseTable) ? (
-            <Table>
-              <Thead>
-                <tr>
-                  <th scope='col' className='px-6 py-3'>
-                    Name
-                  </th>
-                  <th scope='col' className='px-6 py-3'>
-                    Description
-                  </th>
-                </tr>
-              </Thead>
-              <Tbody>
-                {dataEndpoint.responseTable.map((item, index) => (
-                  <tr key={index} className='bg-[#282A36] [&>*]:text-gray-50'>
-                    <th
-                      scope='row'
-                      className='px-6 py-4 w-1/2 font-medium whitespace-nowrap'
-                    >
-                      {item.name}
-                    </th>
-                    <td className='px-6 py-4 w-1/2'>
-                      {item.description}
-                    </td>
-                  </tr>
-                ))}
-              </Tbody>
-            </Table>
+            <TableDetailEndpoint dataBody={dataEndpoint.responseTable} />
           ) : (
             <span className='font-medium text-xl text-gray-400'>{dataEndpoint.responseTable}</span>
           )}
@@ -185,33 +92,7 @@ export default function Operation({ params }: { params: { operation: string } })
         <div className='flex flex-col gap-2 justify-start px-6 py-6 border-b border-[#EE81C3] pb-8'>
           <h1 className='text-6xl font-medium text-[#EE81C3] mb-4'>Error Codes</h1>
           {Array.isArray(dataEndpoint.errorCode) ? (
-            <Table> 
-              <Thead>
-                <tr>
-                  <th scope='col' className='px-6 py-3'>
-                    Name
-                  </th>
-                  <th scope='col' className='px-6 py-3'>
-                    Description
-                  </th>
-                </tr>
-              </Thead>
-              <Tbody>
-                {dataEndpoint.errorCode.map((item, index) => (
-                  <tr key={index} className='bg-[#282A36] [&>*]:text-gray-50'>
-                    <th
-                      scope='row'
-                      className='px-6 py-4 w-1/2 font-medium whitespace-nowrap'
-                    >
-                      {item.code}
-                    </th>
-                    <td className='px-6 py-4 w-1/2'>
-                      {item.description}
-                    </td>
-                  </tr>
-                ))}
-              </Tbody>
-            </Table>
+            <TableDetailEndpoint dataBody={dataEndpoint.errorCode} />
           ) : (
             <span className='font-medium text-xl text-gray-400'>{dataEndpoint.errorCode}</span>
           )}
