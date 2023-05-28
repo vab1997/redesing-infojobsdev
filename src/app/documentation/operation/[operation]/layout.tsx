@@ -1,17 +1,10 @@
-import { ArrowLeft } from "@/components/icons/ArrowLeft"
-import Link from "next/link"
+import { ButtonBack } from "@/components/ButtonBack"
 
 export default function LayoutOperationPage({ children }: { children: React.ReactNode }) {
   return (
     <section className='flex flex-col items-center justify-center w-full pt-4'>
       <div className='flex flex-col items-center justify-center w-full max-w-6xl'>
-        <header className='flex justify-between w-full py-2'>
-          <Link href='/documentation' className='flex items-center gap-2 font-bold text-white text-md hover:underline md:text-lg hover:opacity-80'>
-            <ArrowLeft width={32} height={32}/>
-            Back to doc
-          </Link>
-        </header>
-
+        <ButtonBack href='/documentation' />
         {children}
       </div>
     </section>

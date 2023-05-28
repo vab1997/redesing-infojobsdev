@@ -7,7 +7,6 @@ import { COLOR_METHOD } from '@/utils/constant'
 import { data } from '../../../data/dataTableDoc'
 
 export default async function DocPage() {
-
   return (
     <section className='flex flex-col items-center justify-center gap-4 py-16 w-full'>
       <div className='flex flex-col items-center justify-center max-w-6xl w-full'>
@@ -67,7 +66,7 @@ export default async function DocPage() {
                           '-'
                         )}`}
                       >
-                        <ArrowRight width={24} height={24} />
+                        <ArrowRight width={32} height={32} />
                       </Link>
                     </td>
                   </tr>
