@@ -32,16 +32,18 @@ export function Instruction() {
     <section className="flex flex-col gap-4 pb-8 max-w-6xl w-full">
       <h1 className="text-4xl font-bold text-gray-50">Use your talent </h1>
       <p className="text-gray-50">Feel motivated? Have an idea already? Just follow the next steps to start working with our API.</p>
-      <div className="flex justify-center gap-8 mt-8 w-full">
+      <div className="flex flex-col justify-center items-center gap-8 mt-8 w-full md:flex-row">
         {Object.entries(INSTRUCTION).map(([key, value]) => (
-          <article key={key} className="flex flex-col items-center w-1/4 gap-2">
+          <article key={key} className="flex flex-col justify-start w-3/4 lg:w-1/4 gap-2">
             <header className="flex flex-col pb-8 h-36">
               <h1 className="text-[#5386AB] font-medium mb-2">{value.title}</h1>
               <p className="text-gray-50 leading-6">
                 {value.description}
               </p>
             </header>
-            <value.icon width={80} height={80}/>
+            <span className="flex items-center justify-center">
+              <value.icon width={80} height={80}/>
+            </span>
           </article>
         ))}
       </div>
