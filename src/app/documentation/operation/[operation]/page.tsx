@@ -21,15 +21,15 @@ export default function Operation({ params }: { params: { operation: string } })
     <section className="flex items-center justify-center py-12 w-full">
       <div className="flex flex-col max-w-6xl w-full">
         <header className='flex flex-col items-center justify-center gap-4 px-6 border-b border-[#5386AB] pb-8'>
-          <div className='flex items-center justify-center gap-4'>
-            <span className={`rounded px-4 py-2 text-4xl ${COLOR_METHOD[dataEndpoint.method as keyof typeof COLOR_METHOD]}`}>{dataEndpoint.method}</span>
-            <h1 className='text-4xl font-medium'>{dataEndpoint.urlName}</h1>
+          <div className='flex flex-col items-center justify-center gap-4 md:flex-row'>
+            <span className={`rounded px-4 py-2 text-3xl md:text-4xl ${COLOR_METHOD[dataEndpoint.method as keyof typeof COLOR_METHOD]}`}>{dataEndpoint.method}</span>
+            <h1 className='text-xl sm:text-3xl md:text-4xl font-medium'>{dataEndpoint.urlName}</h1>
           </div>
-          <p className='text-xl'>{dataEndpoint.detailMethod}</p>
+          <p className='text-md md:text-xl'>{dataEndpoint.detailMethod}</p>
           {dataEndpoint.tryIt ? (
             <Link
               href={`/test-console/${dataEndpoint.urlName.replaceAll('/', '-')}`}
-              className='flex items-center justify-center rounded border border-[#5386AB] bg-transparent text-[#5386AB] hover:bg-[#5386AB] hover:text-gray-50 font-bold text-lg py-2 px-4'
+              className='flex items-center justify-center rounded border border-[#5386AB] bg-transparent text-[#5386AB] hover:bg-[#5386AB] hover:text-gray-50 font-bold text-md md:text-lg py-2 px-4'
               aria-label='Try endpoint'
               title='Try endpoint'
             >
@@ -37,7 +37,7 @@ export default function Operation({ params }: { params: { operation: string } })
             </Link>
           ) : (
               <p
-              className='flex items-center justify-center rounded border border-[#5386AB] bg-transparent text-[#5386AB] py-2 px-4 font-bold text-lg'
+              className='flex items-center justify-center rounded border border-[#5386AB] bg-transparent text-[#5386AB] py-2 px-4 font-bold text-md md:text-lg'
               >
                 Coming soon!
               </p>
@@ -45,20 +45,20 @@ export default function Operation({ params }: { params: { operation: string } })
         </header>
 
         <div className='flex flex-col gap-2 justify-start px-6 py-6 border-b border-[#5386AB] pb-8'>
-          <h1 className='text-6xl font-medium text-[#5386AB] mb-4'>Request</h1>
-          <section className='flex w-full'>
-            <div className='flex flex-col leading-4 w-3/5'>
-              <h2 className='text-gray-50 text-2xl font-medium mb-2 flex items-center w-full'>Resource URL:</h2>
-              <span className='font-medium text-xl text-gray-400 truncate pr-4'>{dataEndpoint.request.resourceURL}</span>
+          <h1 className='text-4xl md:text-6xl font-medium text-[#5386AB] mb-4'>Request</h1>
+          <div className='flex flex-col w-full gap-4 md:flex-row'>
+            <div className='flex flex-col leading-4 w-full md:w-3/5'>
+              <h2 className='text-gray-50 text-xl md:text-2xl font-medium mb-2 flex items-center w-full'>Resource URL:</h2>
+              <span className='font-medium text-md md:text-xl text-gray-400 truncate pr-4'>{dataEndpoint.request.resourceURL}</span>
             </div>
-            <div className='flex flex-col leading-4 w-2/5'>
-              <h2 className='text-2xl font-medium mb-2'>Security</h2>
-              <p className='text-gray-50 text-xl'>User Role: <span className='font-medium text-gray-400'>{dataEndpoint.request.security.user_role}</span></p>
-              <p className='text-gray-50 text-xl'>Scope: <span className='font-medium text-gray-400'>{dataEndpoint.request.security.scope}</span></p>
+            <div className='flex flex-col leading-8 w-full md:w-2/5'>
+              <h2 className='text-xl md:text-2xl font-medium mb-2'>Security</h2>
+              <p className='text-gray-50 text-md md:text-xl'>User Role: <span className='font-medium text-gray-400'>{dataEndpoint.request.security.user_role}</span></p>
+              <p className='text-gray-50 text-md md:text-xl'>Scope: <span className='font-medium text-gray-400'>{dataEndpoint.request.security.scope}</span></p>
             </div>
-          </section>
-          <div className='flex flex-col gap-8 mt-4'>
-            <h2 className='text-2xl font-medium'>Parameters</h2>
+          </div>
+          <div className='flex flex-col gap-4 mt-4'>
+            <h2 className='text-xl md:text-2xl font-medium'>Parameters</h2>
             {Array.isArray(dataEndpoint.request.parameters)
               ? (
                 <>
@@ -72,7 +72,7 @@ export default function Operation({ params }: { params: { operation: string } })
               )
               :
               (
-                <span className='font-medium text-xl text-gray-400'>{dataEndpoint.request.parameters}</span>
+                <span className='font-medium text-md md:text-xl text-gray-400'>{dataEndpoint.request.parameters}</span>
               )
             }
           </div>
@@ -90,33 +90,33 @@ export default function Operation({ params }: { params: { operation: string } })
         </div>
 
         <div className='flex flex-col gap-2 justify-start px-6 py-6 border-b border-[#5386AB] pb-8'>
-          <h1 className='text-6xl font-medium text-[#5386AB] mb-4'>Response</h1>
-          <h2 className='text-2xl font-medium'>Response fields</h2>
+          <h1 className='text-4xl md:text-6xl font-medium text-[#5386AB] mb-4'>Response</h1>
+          <h2 className='text-xl md:text-2xl font-medium'>Response fields</h2>
           {Array.isArray(dataEndpoint.responseTable) ? (
             <TableDetailEndpoint dataBody={dataEndpoint.responseTable} />
           ) : (
-            <span className='font-medium text-xl text-gray-400'>{dataEndpoint.responseTable}</span>
+            <span className='font-medium text-md md:text-xl text-gray-400'>{dataEndpoint.responseTable}</span>
           )}
         </div>
 
         <div className='flex flex-col gap-2 justify-start px-6 py-6 border-b border-[#5386AB] pb-8'>
-          <h1 className='text-6xl font-medium text-[#5386AB] mb-4'>Error Codes</h1>
+          <h1 className='text-4xl md:text-6xl font-medium text-[#5386AB] mb-4'>Error Codes</h1>
           {Array.isArray(dataEndpoint.errorCode) ? (
             <TableDetailEndpoint dataBody={dataEndpoint.errorCode} />
           ) : (
-            <span className='font-medium text-xl text-gray-50'>{dataEndpoint.errorCode}</span>
+            <span className='font-medium text-md md:text-xl text-gray-50'>{dataEndpoint.errorCode}</span>
           )}
         </div>
 
         <div className='flex flex-col gap-2 justify-start px-6 py-6 border-b border-[#5386AB] pb-8'>
-          <h1 className='text-6xl font-medium text-[#5386AB]'>Examples</h1>
-          <h3 className='text-lg text-gray-50 mb-4'>{dataEndpoint.descriptionExample}</h3>
+          <h1 className='text-4xl md:text-6xl font-medium text-[#5386AB]'>Examples</h1>
+          <p className='text-md md:text-lg text-gray-50 mb-4'>{dataEndpoint.descriptionExample}</p>
 
           <div className='flex flex-col gap-4'>
-            <h2 className='text-gray-50 text-2xl font-medium flex items-center w-full'>Request:</h2>
-            <span className='font-medium text-xl text-gray-400'>{dataEndpoint.requestURL}</span>
+            <h2 className='text-gray-50 text-xl md:text-2xl font-medium flex items-center w-full'>Request:</h2>
+            <span className='font-medium text-md md:text-xl text-gray-400 truncate'>{dataEndpoint.requestURL}</span>
 
-            <h2 className='text-gray-50 text-2xl font-medium mb-2 flex items-center w-full'>Respone:</h2>
+            <h2 className='text-gray-50 text-xl md:text-2xl font-medium mb-2 flex items-center w-full'>Respone:</h2>
             <div className='border px-2 py-4 rounded border-[#5386AB]'>
               <pre className="text-gray-50 whitespace-pre-wrap overflow-auto px-2">
                 {dataEndpoint.responeseOkExample}
@@ -126,10 +126,10 @@ export default function Operation({ params }: { params: { operation: string } })
 
           {dataEndpoint.responeseErrorExample && (
             <div className='flex flex-col gap-4 mt-4'>
-              <h2 className='text-gray-50 text-2xl font-medium flex items-center w-full'>Request:</h2>
-              <span className='font-medium text-xl text-gray-400'>{dataEndpoint.requestURL}</span>
+              <h2 className='text-gray-50 text-xl md:text-2xl font-medium flex items-center w-full'>Request:</h2>
+              <span className='font-medium text-md md:text-xl text-gray-400 truncate'>{dataEndpoint.requestURL}</span>
 
-              <h2 className='text-gray-50 text-2xl font-medium mb-2 flex items-center w-full'>Respone Error:</h2>
+              <h2 className='text-gray-50 text-xl md:text-2xl font-medium mb-2 flex items-center w-full'>Respone Error:</h2>
               <div className='border px-2 py-4 rounded border-[#5386AB] w-full'>
                 <pre className="text-gray-50 whitespace-pre-wrap overflow-auto px-2">
                   {dataEndpoint.responeseErrorExample}

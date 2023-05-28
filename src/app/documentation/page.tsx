@@ -79,5 +79,5 @@ export default async function DocPage() {
         ))}
       </section>
     </main>
-  );
+  )
 }

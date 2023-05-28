@@ -27,8 +27,8 @@ export default function ScrollToTop () {
         viewBox="0 0 24 24"
         width="60"
         height="60"
-        fill="currentColor"
-        className={`cursor-pointer fixed transition-all duration-500 bottom-8 right-8 ${cls}`}
+        fill="currentColor "
+        className={`cursor-pointer fixed transition-all duration-500 bottom-8 right-8 w-12 md:w-14 ${cls}`}
         onClick={handleClick}
       >
         <path
