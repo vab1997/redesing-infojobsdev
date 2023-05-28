@@ -3,6 +3,7 @@ export const dataInfoEndpoint = [
     urlName: '/candidate',
     method: 'GET',
     detailMethod: 'Returns public candidate data for the authenticated user.',
+    tryIt: false,
     request: {
       resourceURL: 'https://api.infojobs.net/api/6/candidate',
       security: {
@@ -111,7 +112,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'This operation returns all the candidate skills available for a given skill category, the returned skills can be used to complete the CV.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/candidate/skill',
       security: {
         user_role: 'public',
@@ -176,7 +178,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'This operation returns all the skill categories available at InfoJobs. These skill categories have a tree format and only the ones not having subcategories have skills associated directly to them. It is possible to get all the available skill categories along with their associated skills by adding the includeSkills parameter with value true to the request.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/candidate/skillcategory',
       security: {
         user_role: 'public',
@@ -235,7 +238,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Dictionary lists are used accross Infojobs, for instance, to populate pull-down menus in formularies. This operation is used to retrieve all valid elements of a dictionary list. The different dictionary lists are identified by the parameter dictionaryId. A call to this operation providing one of the allowed values will retrieve a response composed of a numeric id, a standarized key, a human readable value and a parentId if it exists.',
-    request: {
+    tryIt: true,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/dictionary/{dictionaryId}',
       security: {
         user_role: 'public',
@@ -515,7 +519,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Dictionary lists are used accross Infojobs, for instance, to populate pull-down menus in formularies. This operation is used to retrieve all valid elements of a dictionary list. The different dictionary lists are identified by the parameter typeId. A call to this operation providing one of the allowed values will retrieve a response composed of a human readable value if it exists.',
-    request: {
+    tryIt: true,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/dictionary/type/{typeId}',
       security: {
         user_role: 'public',
@@ -573,7 +578,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Returns a list with the Curriculums available for the authenticated user. See below for details regarding the Curriculum entity.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/2/curriculum',
       security: {
         user_role: 'role_candidate',
@@ -626,7 +632,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Provides a plain text format version of the authenticated candidate’s full CV, which is optionally added by the user as an extended CV.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/curriculum/{curriculumId}/cvtext',
       security: {
@@ -670,7 +677,8 @@ export const dataInfoEndpoint = [
     method: 'PUT',
     detailMethod:
       'Edits plain text format version of the authenticated candidate’s full CV, which is optionally added by the user as an extended CV. The curriculumId must belongs to the authenticated user.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/curriculum/{curriculumId}/cvtext',
       security: {
@@ -748,7 +756,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Allows to read the education of a CV that belongs to the authenticated user. Only non null fields will not be displayed in the response.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/curriculum/{curriculumId}/education',
       security: {
@@ -824,7 +833,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Allows to read the education identified by the educationId provided of a CV that belongs to the authenticated user. Only non null fields will not be displayed in the response.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/curriculum/{curriculumId}/education/{educationId}',
       security: {
@@ -916,7 +926,8 @@ export const dataInfoEndpoint = [
     method: 'PUT',
     detailMethod:
       'Allows to edit one education item of a CV that belongs to the authenticated user. Using this operation is also possible to create a new education item for the given CV.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/2/curriculum/{curriculumId}/education',
       security: {
@@ -1096,7 +1107,8 @@ export const dataInfoEndpoint = [
     method: 'DELETE',
     detailMethod:
       'Allows to delete the education identified by the educationId provided of a CV that belongs to the authenticated user.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/curriculum/{curriculumId}/education/{educationId}',
       security: {
@@ -1142,7 +1154,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Retrieves an experience identified by experienceId from a Curriculum identified by curriculumId for the authenticated user.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/curriculum/{curriculumId}/experience/{experienceId}',
       security: {
@@ -1271,7 +1284,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Retrieve a list of all the Curriculum professional experience for the authenticated user.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/2/curriculum/{curriculumId}/experience',
       security: {
@@ -1399,7 +1413,8 @@ export const dataInfoEndpoint = [
     method: 'PUT',
     detailMethod:
       'The authenticated user edits an existing a professional experience or creates a new one related to the indicated curriculum ID.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/4/curriculum/{curriculumId}/experience',
       security: {
@@ -1759,7 +1774,8 @@ export const dataInfoEndpoint = [
     method: 'DELETE',
     detailMethod:
       'Deletes an experience identified by experienceId from a Curriculum identified by curriculumId for the authenticated user.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/curriculum/{curriculumId}/experience/{experienceId}',
       security: {
@@ -1802,7 +1818,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       "Allows to retrieve the future Job section of a given curriculum for the authenticated user. The future Job section includes information about the candidates' availability and motivations to change job and their preferences for the new Job, for example, workDay, contractType, wage amount, etc.",
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/4/curriculum/{curriculumId}/futurejob',
       security: {
@@ -1923,7 +1940,8 @@ export const dataInfoEndpoint = [
     method: 'PUT',
     detailMethod:
       'Allows to edit the future Job section of a given curriculum for the authenticated user. In the future Job section the candidate can provide information about his availability and motivations to change job and his preferences for the new Job, for example, workDay, contractType, wage amount, etc.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/4/curriculum/{curriculumId}/futurejob',
       security: {
@@ -2225,7 +2243,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Allows to read the personal data section of a given curriculum for the authenticated user. In the personal data section the candidate can provide information about his localization like country and province and also contact details like his phone number and his mobile phone number.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/2/curriculum/{curriculumId}/personaldata',
       security: {
@@ -2378,7 +2397,8 @@ export const dataInfoEndpoint = [
     method: 'PUT',
     detailMethod:
       'Allows to edit the personal data section of a given curriculum for the authenticated user. In the personal data section the candidate can provide information about his localization like country and province and also contact details like his phone number and his mobile phone number.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/3/curriculum/{curriculumId}/personaldata',
       security: {
@@ -2893,7 +2913,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Allows to read the skills of a Curriculum that belongs to the authenticated user. It returns two types of skill, expertise and language, each one with different attributes.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/2/curriculum/{curriculumId}/skill',
       security: {
@@ -2978,7 +2999,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Returns the detail of the offer identified by the {offerId} provided in the URL.',
-    request: {
+    tryIt: true,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/7/offer/{offerId}',
       security: {
         user_role: 'public',
@@ -3425,7 +3447,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Returns a list of offers that comply with the specified search parameters. This operation is useful to retrieve a set of offers posted in a specific province, category, etc. It also enables you to search offers containing a keyword. The response includes the most relevant fields of each offer. It may also return a faceted search (also called faceted navigation, guided navigation, or parametric search) that breaks up search results into multiple categories (province, category, etc.), showing counts for each. It allows the user to "drill down" or further restrict their search results based on those facets.',
-    request: {
+    tryIt: true,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/9/offer',
       security: {
         user_role: 'public',
@@ -3840,7 +3863,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'When a candidate applies to a job post an application identified by an unique code is created. A request to this operation returns the application identified by the application id specified in the URL for the authenticated user.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/application/{applicationId}',
       security: {
         user_role: 'role_candidate',
@@ -3996,7 +4020,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'When a candidate applies to a job post, an application identified by an unique code is created. A request to this operation returns the newest 20 applications to job offers for the authenticated user. By default the applications are returned ordered by "last-event" (in descending order).',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/5/application',
       security: {
         user_role: 'role_candidate',
@@ -4164,7 +4189,8 @@ export const dataInfoEndpoint = [
     method: 'PUT',
     detailMethod:
       'When a candidate applies to a job post an application identified by an unique code is created. A request to this operation updates the application identified by the application id specified in the URL for the authenticated user.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/application/{applicationId}',
       security: {
         user_role: 'role_candidate',
@@ -4205,7 +4231,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'When a candidate applies to a job post an application identified by an unique code is created. This application may be associated to one or more TimeLine events. A TimeLine event is created every time the application undergoes a status change, for instance when the cv included in the application has been read by the company, or when the candidate is rejected from the application process. A request to this operation returns the application events associated to the applicationId provided for the authenticated user. By default the application events are returned ordered by descending update order.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/3/application/{applicationId}/timeline',
       security: {
@@ -4274,7 +4301,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Candidates have the option of saving cover letters to attach to job offer applications that required them. This operation returns a list of cover letters available for the authenticated user.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/coverletter',
       security: {
         user_role: 'role_candidate',
@@ -4313,7 +4341,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Candidates have the option of saving cover letters to attach to job offer applications that required them. This operation returns a cover letter available for the authenticated user and identified by the coverletterId informed.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/coverletter/{coverletterId}',
       security: {
         user_role: 'role_candidate',
@@ -4368,7 +4397,8 @@ export const dataInfoEndpoint = [
     method: 'PUT',
     detailMethod:
       'Candidates have the option of edit cover letters to attach to job offer applications that required them. This operation will edit an existing cover letter on the authenticated user and identified by the coverletter id informed.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/2/coverletter/{coverLetterId}',
       security: {
         user_role: 'role_candidate',
@@ -4449,7 +4479,8 @@ export const dataInfoEndpoint = [
     method: 'DELETE',
     detailMethod:
       'Candidates have the option of saving cover letters to attach to job offer applications that required them. This operation returns a cover letter available for the authenticated user and identified by the coverletterId informed.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/coverletter/{coverletterId}',
       security: {
         user_role: 'role_candidate',
@@ -4489,7 +4520,8 @@ export const dataInfoEndpoint = [
     method: 'POST',
     detailMethod:
       'The authenticated user uses this operation to make a job application for the indicated offer. It is imporant to notice that some offers include several questions that should be answered as a requirement to complete the application. These questions are called Killer Question for the multiple choice ones, and Open Questions for those the answer is a free input text. This operation has been developed to optimize the process of applying to an offer from a mobile device. It allows to edit an existing coverletter at the same time the application is submited. So if a user decides to save the coverletter they just used for the future they can do so by informing the field "doSave".',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/4/offer/{offerId}/application',
       security: {
         user_role: 'role_candidate',
@@ -4634,7 +4666,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Returns the killer questions of an offer where the id matches with the {offerId} in the URL.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/offer/{offerId}/killerquestion',
       security: {
@@ -4694,7 +4727,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Returns the prescreening questions with open answers of an offer where the id matches with the {offerId} in the URL.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL:
         'https://api.infojobs.net/api/1/offer/{offerId}/openquestion',
       security: {
@@ -4743,7 +4777,8 @@ export const dataInfoEndpoint = [
     method: 'GET',
     detailMethod:
       'Returns the prescreening questions of an offer where the id matches with the {offerId} in the URL.',
-    request: {
+    tryIt: false,
+      request: {
       resourceURL: 'https://api.infojobs.net/api/1/offer/{offerId}/question',
       security: {
         user_role: 'public',

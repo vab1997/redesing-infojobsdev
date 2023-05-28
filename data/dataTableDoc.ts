@@ -9,6 +9,7 @@ export const data = [
         name: '/candidate',
         descriptionMethod: 'Returns account data of the authenticated user.',
         linkDocMethod: '/documentation/operation/candidate-get-6.xhtml',
+        tryIt: false
       },
       {
         method: 'GET',
@@ -16,6 +17,7 @@ export const data = [
         descriptionMethod:
           'Returns a list of skilks for a given skill category id',
         linkDocMethod: '/documentation/operation/candidate-skill-list-1.xhtml',
+        tryIt: false
       },
       {
         method: 'GET',
@@ -24,6 +26,7 @@ export const data = [
           'Returns a tree with all the skill categories available',
         linkDocMethod:
           '/documentation/operation/candidate-skillcategory-list-1.xhtml',
+          tryIt: false
       },
     ],
   },
@@ -38,6 +41,7 @@ export const data = [
         descriptionMethod:
           'Returns all valid elements of the specified dictionary list.',
         linkDocMethod: '/documentation/operation/dictionary-get-1.xhtml',
+        tryIt: true,
       },
       {
         method: 'GET',
@@ -45,6 +49,7 @@ export const data = [
         descriptionMethod:
           'Returns all valid elements of the specified dictionary list.',
         linkDocMethod: '/documentation/operation/dictionary-type-get-1.xhtml',
+        tryIt: true,
       },
     ],
   },
@@ -58,18 +63,21 @@ export const data = [
         name: '/curriculum',
         descriptionMethod: 'Returns list of CVs of the authenticated user.',
         linkDocMethod: '/documentation/operation/curriculum-list-2.xhtml',
+        tryIt: false
       },
       {
         method: 'GET',
         name: '/curriculum/{curriculumId}/cvtext',
         descriptionMethod: 'Gets the curriculum in text format',
         linkDocMethod: '/documentation/operation/curriculum-cvtext-get-1.xhtml',
+        tryIt: false
       },
       {
         method: 'PUT',
         name: '/curriculum/{curriculumId}/cvtext',
         descriptionMethod: 'Updates the curriculum in text format',
         linkDocMethod: '/documentation/operation/curriculum-cvtext-put-1.xhtml',
+        tryIt: false
       },
       {
         method: 'GET',
@@ -77,6 +85,7 @@ export const data = [
         descriptionMethod: 'Gets the education details of the curriculum',
         linkDocMethod:
           '/documentation/operation/curriculum-education-list-1.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
@@ -85,6 +94,7 @@ export const data = [
           'Retrieves education details for a given CV for the authenticated user.',
         linkDocMethod:
           '/documentation/operation/curriculum-education-get-1.xhtml',
+          tryIt: false
       },
       {
         method: 'PUT',
@@ -93,6 +103,7 @@ export const data = [
           'Update education details for a given CV for the authenticated user.',
         linkDocMethod:
           '/documentation/operation/curriculum-education-put-2.xhtml',
+          tryIt: false
       },
       {
         method: 'DELETE',
@@ -101,6 +112,7 @@ export const data = [
           'Retrieves education details for a given CV for the authenticated user.',
         linkDocMethod:
           '/documentation/operation/curriculum-education-delete-1.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
@@ -108,6 +120,7 @@ export const data = [
         descriptionMethod: 'Retrieves the experience requested.',
         linkDocMethod:
           '/documentation/operation/curriculum-experience-get-1.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
@@ -116,6 +129,7 @@ export const data = [
           'Retrieve the experiences from the given curriculum Id.',
         linkDocMethod:
           '/documentation/operation/curriculum-experience-list-2.xhtml',
+          tryIt: false
       },
       {
         method: 'PUT',
@@ -124,6 +138,7 @@ export const data = [
           'Create/Edit the experience of the given curriculum Id.',
         linkDocMethod:
           '/documentation/operation/curriculum-experience-put-4.xhtml',
+          tryIt: false
       },
       {
         method: 'DELETE',
@@ -131,6 +146,7 @@ export const data = [
         descriptionMethod: 'Delete the experience of the given curriculum Id.',
         linkDocMethod:
           '/documentation/operation/curriculum-experience-delete-1.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
@@ -138,6 +154,7 @@ export const data = [
         descriptionMethod: 'Gets the future job fields of the curriculum',
         linkDocMethod:
           '/documentation/operation/curriculum-futurejob-get-4.xhtml',
+          tryIt: false
       },
       {
         method: 'PUT',
@@ -145,6 +162,7 @@ export const data = [
         descriptionMethod: 'Updates the future job fields of the curriculum',
         linkDocMethod:
           '/documentation/operation/curriculum-futurejob-put-4.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
@@ -152,6 +170,7 @@ export const data = [
         descriptionMethod: "Gets the personal data of the curriculum's owner",
         linkDocMethod:
           '/documentation/operation/curriculum-personaldata-get-2.xhtml',
+          tryIt: false
       },
       {
         method: 'PUT',
@@ -159,12 +178,14 @@ export const data = [
         descriptionMethod: 'Edit curriculum personal data',
         linkDocMethod:
           '/documentation/operation/curriculum-personaldata-put-3.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
         name: '/curriculum/{curriculumId}/skill',
         descriptionMethod: 'Gets the curriculum skills',
         linkDocMethod: '/documentation/operation/curriculum-skill-list-2.xhtml',
+        tryIt: false
       },
     ],
   },
@@ -178,6 +199,7 @@ export const data = [
         name: '/offer/{offerId}',
         descriptionMethod: 'Returns the detail of the offer with the given id.',
         linkDocMethod: '/documentation/operation/offer-get-7.xhtml',
+        tryIt: true,
       },
       {
         method: 'GET',
@@ -185,6 +207,7 @@ export const data = [
         descriptionMethod:
           'Returns a list of Job Offers that comply with the search criteria.',
         linkDocMethod: '/documentation/operation/offer-list-9.xhtml',
+        tryIt: true,
       },
     ],
   },
@@ -199,6 +222,7 @@ export const data = [
         descriptionMethod:
           'Returns details of the given job application for the authenticated user.',
         linkDocMethod: '/documentation/operation/application-get-1.xhtml',
+        tryIt: false
       },
       {
         method: 'GET',
@@ -206,6 +230,7 @@ export const data = [
         descriptionMethod:
           'Returns the list of job applications for the authenticated user.',
         linkDocMethod: '/documentation/operation/application-list-5.xhtml',
+        tryIt: false
       },
       {
         method: 'PUT',
@@ -213,6 +238,7 @@ export const data = [
         descriptionMethod:
           'Update the given job application for the authenticated user.',
         linkDocMethod: '/documentation/operation/application-put-1.xhtml',
+        tryIt: false
       },
       {
         method: 'GET',
@@ -221,6 +247,7 @@ export const data = [
           "Returns the candidate's application timeline of the given offer.",
         linkDocMethod:
           '/documentation/operation/application-timeline-list-3.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
@@ -228,6 +255,7 @@ export const data = [
         descriptionMethod:
           'Returns list of cover letters of the authenticated user.',
         linkDocMethod: '/documentation/operation/coverletter-list-1.xhtml',
+        tryIt: false
       },
       {
         method: 'GET',
@@ -235,18 +263,21 @@ export const data = [
         descriptionMethod:
           "Returns the candidate's cover letter with the given Id.",
         linkDocMethod: '/documentation/operation/coverletter-get-1.xhtml',
+        tryIt: false
       },
       {
         method: 'PUT',
         name: '/coverletter/{coverletterId}',
         descriptionMethod: 'Creates a new Cover Letter',
         linkDocMethod: '/documentation/operation/coverletter-put-2.xhtml',
+        tryIt: false
       },
       {
         method: 'DELETE',
         name: '/coverletter/{coverletterId}',
         descriptionMethod: 'Removes a coverletter.',
         linkDocMethod: '/documentation/operation/coverletter-delete-1.xhtml',
+        tryIt: false
       },
       {
         method: 'POST',
@@ -255,6 +286,7 @@ export const data = [
           'Create a job application to the indicated offer for the authenticated user.',
         linkDocMethod:
           '/documentation/operation/offer-application-post-4.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
@@ -262,6 +294,7 @@ export const data = [
         descriptionMethod: 'Returns the Killer Questions of an offer.',
         linkDocMethod:
           '/documentation/operation/offer-killerquestion-list-1.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
@@ -269,12 +302,14 @@ export const data = [
         descriptionMethod: 'Returns the Open Questions of an offer.',
         linkDocMethod:
           '/documentation/operation/offer-openquestion-list-1.xhtml',
+          tryIt: false
       },
       {
         method: 'GET',
         name: '/offer/{offerId}/question',
         descriptionMethod: 'Returns the Killer and Open Questions of an offer.',
         linkDocMethod: '/documentation/operation/offer-question-list-1.xhtml',
+        tryIt: false
       },
     ],
   },
