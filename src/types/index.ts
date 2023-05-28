@@ -7,6 +7,7 @@ export interface DataBody {
 export interface FormOperationProps {
   endpoint: string;
   method: string;
+  route: string;
 }
 
 export interface PrevProps {
