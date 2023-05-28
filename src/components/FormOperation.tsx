@@ -8,11 +8,12 @@ let jsonResult: any = []
 let prevProps: PrevProps = { endpoint: '', method: '' }
 let prevUrl: PrevUrl = { prev: '' }
 
-export function FormOperation({ endpoint, method }: FormOperationProps) {
+export function FormOperation({ endpoint, method, route }: FormOperationProps) {
   async function handleSubmit (formData: FormData) {
     'use server'
 
     const url = formData.get('url')
+    const validateRoute = formData.get('route')
     if (!url) return 'url is required' 
 
     url !== prevUrl.prev ? jsonResult = [] : null
@@ -23,13 +24,14 @@ export function FormOperation({ endpoint, method }: FormOperationProps) {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        Authorization: `Basic ${TOKEN_API}}`
-      }
+        Authorization: `Basic ${TOKEN_API}`
+      },
+      cache: 'no-cache'
     })
     const json = await dataResult.json()
     jsonResult.push(json)
     
-    revalidatePath('/test-console/[endpoint]')
+    revalidatePath(`/test-console/${validateRoute}`)
   }
 
   const validationChangeEndpoint = prevProps.endpoint !== endpoint && prevProps.method !== method
@@ -45,8 +47,9 @@ export function FormOperation({ endpoint, method }: FormOperationProps) {
         className="flex items-center justify-between gap-2 w-full"
       >
         <span className={`rounded text-md p-2 font-medium border border-current ${COLOR_METHOD[method as keyof typeof COLOR_METHOD]}`}>{method}</span>
+        <input type="hidden" name="route" defaultValue={route} />
         <input
-          className="w-full bg-transparent border border-[#EE81C3] rounded text-gray-50 px-4 py-2"
+          className="w-full bg-transparent border border-[#5386AB] rounded text-gray-50 px-4 py-2"
           type='text'
           name="url"
           defaultValue={endpoint}
@@ -54,8 +57,8 @@ export function FormOperation({ endpoint, method }: FormOperationProps) {
         <ButtonSubmit />
       </form>
 
-      <div className="rounded border border-[#EE81C3] px-4 py-6  w-full">
-        <h3 className="font-medium text-[#EE81C3] text-lg text-start w-full">Execution Result</h3>
+      <div className="rounded border border-[#5386AB] px-4 py-6  w-full">
+        <h3 className="font-medium text-[#5386AB] text-lg text-start w-full">Execution Result</h3>
         <div className="h-auto">
           {jsonResult[0] ? (
             <pre className="text-gray-50 whitespace-pre-wrap overflow-auto px-2">
