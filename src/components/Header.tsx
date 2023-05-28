@@ -25,14 +25,6 @@ export default function Header() {
           </nav>
         </div>
       </div>
-      <div className='flex items-center justify-center'>
-        <Link
-          href='/login'
-          className='text-white bg-transparent border border-[#EE81C3] py-2 px-4 rounded hover:bg-[#EE81C3] hover:text-gray-50'
-        >
-          Login
-        </Link>
-      </div>
     </header>
   );
 }
