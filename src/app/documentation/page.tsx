@@ -16,7 +16,7 @@ export default async function DocPage() {
             className='flex flex-col justify-center gap-6 pb-12 w-full'
           >
             <div className='flex flex-col gap-2'>
-              <h1 className='text-[#5386AB] text-2xl font-bold'>{item.title}</h1>
+              <h1 id={item.title} className='text-[#5386AB] text-2xl font-bold'>{item.title}</h1>
               <p className='text-gray-50'>{item.descriptionOperation}</p>
             </div>
             <Table>
