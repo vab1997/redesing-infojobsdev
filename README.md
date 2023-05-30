@@ -2,7 +2,7 @@
 
 Redesing of page [InfoJobs developers](https://developer.infojobs.net/), impovent user experience and performance.
 
-## Endpoint You can play with the API here:
+## Endpoint You can try:
 - GET - /dictionary/{dictionaryId}
 - GET - /dictionary/type/{typeId}
 - GET - /offer/{offerId}
