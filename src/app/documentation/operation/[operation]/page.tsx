@@ -40,7 +40,7 @@ export default function Operation({ params }: { params: { operation: string } })
               <p
               className='flex items-center justify-center rounded border border-[#5386AB] bg-transparent text-[#5386AB] py-2 px-4 font-bold text-md md:text-lg'
               >
-                Coming soon!
+                Private information
               </p>
           )}
         </header>
